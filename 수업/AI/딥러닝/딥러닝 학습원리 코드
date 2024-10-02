@@ -1,0 +1,23 @@
+# 인공신경망(딥러닝) 학습 원리
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+x1 = np.array([2, 4, 6, 8]) # 공부시간
+y = np.array([20, 55, 45, 80]) # 성적
+
+a1 = 0
+b = 0
+
+for i in range(3000):
+    
+    y_hat = a1 * x1 + b
+    error = y_hat - y
+    
+    a1_diff = sum(2 * error * x1)
+    b_diff = sum(2 * error * 1)
+    
+    a1 = a1 - a1_diff
+    b = b - b_diff
+    
+    print(f"{i+1}회 학습 / a1 기울기 : {a1_diff:.2f}, b 기울기 : {b_diff:.2f}")
